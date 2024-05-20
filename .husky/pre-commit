@@ -1,1 +1,2 @@
-pnpm format
+pnpm biome format --write ./src
+pnpm biome lint --apply ./src

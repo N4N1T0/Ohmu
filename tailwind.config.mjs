@@ -12,6 +12,12 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        gold: '#D0AC38',
+        navy: '#243E61',
+        ivory: '#FCFEFF',
+        charcoal: '#433E3F',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

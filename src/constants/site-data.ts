@@ -20,3 +20,45 @@ export const navItems = [
 		href: '/blog',
 	},
 ]
+
+export const stats = [
+	{
+		label: 'Proyectos',
+		value: '30 +',
+	},
+	{
+		label: 'Clientes',
+		value: '50 +',
+	},
+	{
+		label: 'Satisfacción',
+		value: '95 %',
+	},
+	{
+		label: 'Experiencia',
+		value: '10 +',
+	},
+	{
+		label: 'Servicios',
+		value: '20 +',
+	},
+]
+
+export const services = [
+	{
+		title: 'Desarrollo Web',
+		description: 'Desarrollo de sitios web modernos, escalables y seguros.',
+	},
+	{
+		title: 'Marketing de Contenido',
+		description: 'Creación y publicación de contenido para tu negocio.',
+	},
+	{
+		title: 'Social Media Management',
+		description: 'Optimización y creación de contenido para tus redes.',
+	},
+	{
+		title: 'Client Retention Optimitation',
+		description: 'Optimización de la rentabilidad de tus clientes.',
+	},
+]

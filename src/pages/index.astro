@@ -1,8 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { Button } from '@/components/ui/button'
+import Hero from '@/components/home/Hero.astro'
+import Subhero from '@/components/home/Subhero.astro'
+import Stats from '@/components/home/Stats.astro'
+import Servicios from '@/components/home/Servicios.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
-  <Button>Hello World</Button>
+<Layout title="Welcome to Astro.">
+  <Hero />
+  <Subhero />
+  <Stats />
+  <Servicios />
 </Layout>

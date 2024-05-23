@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets'
+import SubheroPic from '@/assets/amy-hirschi-szrJ3wjzOMg-unsplash.jpg'
+---
+
+<section id="subhero" class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-5 pb-20 space-y-14 border-b border-navy/30">
+  <div class="flex justify-between items-center w-full text-lg">
+    <h2 class="font-medium uppercase w-[20%]">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+    <p class="w-[50%]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, natus nulla laboriosam ab ducimus nostrum libero architecto itaque molestiae, optio deserunt voluptatem dignissimos eum officiis accusantium repudiandae. Quia, pariatur obcaecati.</p>
+  </div>
+  <Image
+    src={SubheroPic}
+    alt="Subhero Pic"
+    class='w-full [aspect-ratio:16/6] rounded-[2rem]'
+  />
+  <h3 class="font-medium uppercase text-3xl">Lorem ipsum dolor sit amet</h3>
+  <p class="text-4xl font-semibold uppercase leading-normal text-navy">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem culpa, soluta ut blanditiis nam cum beatae ad aperiam quos veritatis architecto accusamus dolorem eum perspiciatis corrupti omnis aliquid atque voluptatibus!</p>
+</section>

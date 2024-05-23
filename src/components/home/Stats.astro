@@ -1,0 +1,24 @@
+---
+import { stats } from '@/constants/site-data'
+---
+
+<section
+  id="stats"
+  class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-10 pb-20"
+>
+<div class="w-full flex justify-between items-start">
+  <h3 class="font-medium uppercase text-3xl">Lorem ipsum dolor sit amet</h3>
+  <ul class="flex gap-10">
+    {stats.map((stat) => {
+      const statsArray = stat.value.split(' ')
+      
+      return (
+      <li class="text-6xl font-semibold uppercase leading-normal">
+          <span>{statsArray[0]}</span>{' '}<span class="text-gold">{statsArray[1]}</span>
+          <p class="text-2xl">{stat.label}</p>
+      </li>
+    )
+    })}
+  </ul>
+</div>
+</section>

@@ -38,10 +38,6 @@ export const stats = [
 		label: 'Experiencia',
 		value: '10 +',
 	},
-	{
-		label: 'Servicios',
-		value: '20 +',
-	},
 ]
 
 export const services = [

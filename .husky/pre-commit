@@ -1,2 +1,3 @@
+pnpm astro check
 pnpm biome format --write --staged ./src
 pnpm biome lint --apply --staged ./src

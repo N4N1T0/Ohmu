@@ -1,13 +1,30 @@
+---
+import ProjectDrawer from '@/components/react/project-drawer'
+import ProjectCard from '@/components/shared/ProjectCard.astro'
+---
+
 <section
   id="projects"
   class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-10 pb-20"
 >
-<div class="flex justify-between items-center w-full">
+<div class="flex justify-between items-center w-full border-b border-navy/30 pb-10">
   <h2 class="text-9xl font-medium uppercase">
       Proyectos
   </h2>
-  <div class="bg-gold rounded-full p-8 px-10 text-center uppercase text-ivory">
+  <div class="bg-gold rounded-full p-8 px-10 text-center uppercase text-ivory hover:bg-gold/70 duration-150 transition-colors cursor-pointer">
       <p>ver <br> mas</p>
     </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+  {Array.from({ length: 4 }).map(() => (
+    <ProjectDrawer client:visible >
+      <ProjectCard title='Lorem' category='Lorem ipsum dolor' />
+    </ProjectDrawer>
+  ))}
+</div>
+<div class="border-t border-navy/30 py-3 flex justify-between items-center mt-14">
+  <span class="text-4xl text-gold uppercase">2024</span>
+  <h4 class="uppercase font-semibold text-xl w-[30%]">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
+  <p class="w-[40%] text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos alias obcaecati accusamus velit sit, quibusdam tenetur ut provident sequi aliquid.</p>
 </div>
 </section>

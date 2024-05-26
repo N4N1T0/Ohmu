@@ -13,7 +13,9 @@ const ServicesAccordion = () => {
 				<AccordionItem value={title} key={title}>
 					<AccordionTrigger className='text-6xl uppercase flex py-10'>
 						<div className='flex items-center gap-4'>
-							<span className='text-3xl text-gold'>0{index + 1}</span>
+							<span className='text-3xl text-gold mr-5 md:mr-10'>
+								0{index + 1}
+							</span>
 							{title}
 						</div>
 					</AccordionTrigger>

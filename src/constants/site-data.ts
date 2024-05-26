@@ -57,4 +57,8 @@ export const services = [
 		title: 'Client Retention Optimitation',
 		description: 'Optimización de la rentabilidad de tus clientes.',
 	},
+	{
+		title: 'Localización',
+		description: 'Optimización de la rentabilidad de tus locales.',
+	},
 ]

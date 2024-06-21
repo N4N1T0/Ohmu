@@ -1,5 +1,14 @@
 ---
 import ServicesAccordion from '../react/services-accordion'
+import { uiInfo } from '@/constants/site-data'
+
+interface Props {
+	locale: 'es' | 'en' | 'rs'
+}
+
+const { locale } = Astro.props
+
+const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
 <section
@@ -8,8 +17,8 @@ import ServicesAccordion from '../react/services-accordion'
 >
 <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 py-14">
   <h2 class="text-9xl font-medium uppercase">
-        Servicios
+        {uiText['services-1']}
   </h2>
-  <ServicesAccordion client:visible />
+  <ServicesAccordion locale={locale} client:visible />
 </div>
 </section>

@@ -1,12 +1,21 @@
 ---
 import { ArrowDownRight } from 'lucide-react'
+import { uiInfo } from '@/constants/site-data'
+
+interface Props {
+	locale: 'es' | 'en' | 'rs'
+}
+
+const { locale } = Astro.props
+
+const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
 <section
   id="hero"
   class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-20 pb-14 border-b border-navy/30"
 >
-<span class="text-charcoal tracking-wide uppercase ml-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum debitis voluptatem.</span>
+<span class="text-charcoal tracking-wide uppercase ml-3">{uiText['sub-hero']}</span>
   <div class="flex items-end w-full">
     <h1 class="text-9xl font-medium uppercase">
       <span class="text-navy font-semibold">Ohmu</span> Online Operations

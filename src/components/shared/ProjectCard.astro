@@ -1,29 +1,43 @@
 ---
 import { Image } from 'astro:assets'
+import { slugify } from '@/lib/utils'
 
 export interface Props {
 	title: string
-	category: string
+	description: string
+	image1: ImageMetadata
+	image2: ImageMetadata
 }
 
-const { title, category } = Astro.props
+const { title, description, image1, image2 } = Astro.props
 ---
 
-		<article
-			class='group space-y-5'
-		>
-		<div class="overflow-hidden rounded-3xl w-full">
-			<Image
-				src='https://via.assets.so/game.png?id=1&q=95&w=750&h=500&fit=fill'
-				alt='Shoes'
-				inferSize
-				class='object-cover group-hover:scale-110 duration-300 transition-transform'
-			/>
-		</div>
-			<div class="text-left space-y-1 uppercase">
-				<h2 class="font-semibold text-charcoal text-xl" >{category}</h2>
-				<h1 class='text-4xl font-bold text-gray-950 tracking-wider'>
-					{title}
-				</h1>
+		<article>
+			<a
+			href=`/projects/${slugify(title)}`
+				class='group space-y-5'
+			>
+			<div class="overflow-hidden rounded-3xl w-full relative aspect-square">
+				<Image
+					src={image1}
+					alt={`${title} principal picture`}
+					title={`${title} principal picture`}
+          transition:name={`${slugify(title)}-main`}
+					class='object-cover'
+				/>
+				<Image
+					src={image2}
+					alt={`${title} mockup website`}
+					title={`${title} mockup website`}
+					transition:name={slugify(title)}
+					class='absolute object-cover top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 duration-500 transition-opacity'
+				/>
 			</div>
+				<div class="text-left space-y-1 uppercase">
+					<h2 class="font-semibold text-charcoal text-xl" >{description}</h2>
+					<h1 class='text-4xl font-bold text-gray-950 tracking-wider'>
+						{title}
+					</h1>
+				</div>
+			</a>
 		</article>

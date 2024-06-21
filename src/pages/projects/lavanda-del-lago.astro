@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { projects } from '@/constants/projects'
+import { Image } from 'astro:assets'
+import { slugify } from '@/lib/utils'
+
+const lavandaInfo = projects.find(
+	(project) => project.title === 'Lavanda del Lago',
+)
+
+// biome-ignore lint/style/noNonNullAssertion: <explanation>
+const { title, description, image1, image2 } = lavandaInfo!
+---
+<Layout title={title}>
+  <section id={`${slugify(title)}-info`} class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-10 pb-20 relative flex">
+    <div class="flex-1">
+      <Image
+              src={image2}
+               alt={`${title} mockup website`}
+              title={`${title} mockup website`}
+              transition:name={`${slugify(title)}-mockup`}
+            />
+      <Image
+              src={image1}
+              alt={`${title} principal picture`}
+					title={`${title} principal picture`}
+              transition:name={`${slugify(title)}-main`}
+
+            />
+    </div>
+    <aside class="sticky top-0 flex-1 h-fit">
+      <h2>{description}</h2>
+      <h1>{title}</h1>
+    </aside>
+  </section>
+</Layout>

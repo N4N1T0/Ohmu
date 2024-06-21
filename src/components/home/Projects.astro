@@ -1,6 +1,6 @@
 ---
-import ProjectDrawer from '@/components/react/project-drawer'
 import ProjectCard from '@/components/shared/ProjectCard.astro'
+import { projects } from '@/constants/projects'
 ---
 
 <section
@@ -9,18 +9,14 @@ import ProjectCard from '@/components/shared/ProjectCard.astro'
 >
 <div class="flex justify-between items-center w-full border-b border-navy/30 pb-10">
   <h2 class="text-9xl font-medium uppercase">
-      Proyectos
+     Casos de Exito
   </h2>
   <div class="bg-gold rounded-full p-8 px-10 text-center uppercase text-ivory hover:bg-gold/70 duration-150 transition-colors cursor-pointer">
       <p>ver <br> mas</p>
     </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-  {Array.from({ length: 4 }).map(() => (
-    <ProjectDrawer client:visible >
-      <ProjectCard title='Lorem' category='Lorem ipsum dolor' />
-    </ProjectDrawer>
-  ))}
+  {projects.map((project) => <ProjectCard title={project.title} description={project.description} image1={project.image1} image2={project.image2} />)}
 </div>
 <div class="border-t border-navy/30 py-3 flex justify-between items-center mt-14">
   <span class="text-4xl text-gold uppercase">2024</span>

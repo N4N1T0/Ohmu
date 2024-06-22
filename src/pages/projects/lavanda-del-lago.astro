@@ -11,7 +11,7 @@ const lavandaInfo = projects.find(
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 const { title, description, image1, image2 } = lavandaInfo!
 ---
-<Layout title={title}>
+<Layout title={title} locale='es'>
   <section id={`${slugify(title)}-info`} class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-10 pb-20 relative flex">
     <div class="flex-1">
       <Image

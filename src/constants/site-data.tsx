@@ -65,7 +65,7 @@ export const services = {
 			image: DesarrolloWeb,
 		},
 		{
-			title: 'Optimización de Retención de Clientes',
+			title: 'Retención de Clientes',
 			description:
 				'Implementamos estrategias avanzadas para mejorar la retención y lealtad de tus clientes, maximizando la rentabilidad y el valor a largo plazo de cada cliente.',
 			image: DesarrolloWeb,
@@ -79,8 +79,27 @@ export const services = {
 	],
 }
 
+export const ourLinks = [
+	{
+		label: 'ohmu.onlineopertations@gmail.com',
+		link: 'mailto:ohmu.onlineopertations@gmail.com',
+	},
+	{
+		label: '+34647317214',
+		link: 'tel:+34647317214',
+	},
+	{
+		label: '@ohmu.onlineopertations',
+		link: 'https://www.instagram.com/ohmu.onlineopertations/',
+	},
+]
+
 export const uiInfo = {
 	es: {
+		'contact-sheet-header': 'Nuestros metodos de contacto',
+		'contact-sheet-description': 'Escribinos para ponernos en contacto',
+		'contact-sheet-footer': 'Contactos directos',
+		'mobile-navbar-sheet-header': 'Ohmu Online Operations',
 		'sub-hero': 'Transformamos tu presencia digital en una máquina de ventas',
 		'we-are-1':
 			'Somos una agencia boutique ágil y eficiente ubicada en Málaga, España,',
@@ -90,3 +109,90 @@ export const uiInfo = {
 		'services-1': 'nuestros servicios',
 	},
 }
+
+export const uiForm = {
+	es: {
+		'contact-name': 'Nombre Completo',
+		'contact-name-placeholder': 'Jose Perez',
+		'contact-name-error': 'Por favor introduzca su nombre',
+		'contact-email': 'Email Personal',
+		'contact-email-placeholder': 'jose.perez@gmail.com',
+		'contact-email-error': 'Por favor introduzca su email',
+		'contact-phone': 'Numero de Telefono',
+		'contact-phone-placeholder': '+123456789',
+		'contact-phone-error': 'Por favor introduzca su telefono',
+		'contact-services': 'En que Podemos ayudarte',
+		'contact-services-placeholder': 'Convertir mi web en una maquina de ventas',
+		'contact-message': 'Un mensaje para nostros',
+		'contact-message-placeholder':
+			'Hola, que tal? queria que me ayudaran con...',
+		'contact-submit': 'Enviar',
+	},
+}
+
+export const techStack = [
+	{
+		label: 'nextdotjs',
+		route: 'https://nextjs.org/',
+	},
+	{
+		label: 'react',
+		route: 'https://reactjs.org/',
+	},
+	{
+		label: 'astro',
+		route: 'https://astro.build/',
+	},
+	{
+		label: 'tailwindcss',
+		route: 'https://tailwindcss.com/',
+	},
+	{
+		label: 'framer',
+		route: 'https://www.framer.com/',
+	},
+	{
+		label: 'wordpress',
+		route: 'https://wordpress.org/',
+	},
+	{
+		label: 'figma',
+		route: 'https://www.figma.com/',
+	},
+	{
+		label: 'payloadcms',
+		route: 'https://payloadcms.com/',
+	},
+	{
+		label: 'sanity',
+		route: 'https://www.sanity.io/',
+	},
+	{
+		label: 'stripe',
+		route: 'https://stripe.com/',
+	},
+	{
+		label: 'openai',
+		route: 'https://openai.com/',
+	},
+	{
+		label: 'googleads',
+		route: 'https://ads.google.com/',
+	},
+	{
+		label: 'googleoptimize',
+		route: 'https://optimize.google.com/',
+	},
+	{
+		label: 'googleanalytics',
+		route: 'https://analytics.google.com/',
+	},
+	{
+		label: 'shopify',
+		route: 'https://www.shopify.com/',
+	},
+	{
+		label: 'supabase',
+		route: 'https://supabase.com/',
+	},
+]

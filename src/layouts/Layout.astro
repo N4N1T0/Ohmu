@@ -6,13 +6,14 @@ import '@/styles/globals.css'
 
 interface Props {
 	title: string
+	locale: 'es' | 'en' | 'rs'
 }
 
-const { title } = Astro.props
+const { title, locale } = Astro.props
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang={locale}>
   <head>
      <ViewTransitions />
     <meta charset='UTF-8' />
@@ -23,10 +24,10 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body class="overflow-x-hidden">
-    <Navbar />
+    <Navbar locale={locale} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>

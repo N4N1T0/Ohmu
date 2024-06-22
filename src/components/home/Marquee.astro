@@ -1,0 +1,48 @@
+---
+import { techStack } from '@/constants/site-data'
+import { Image } from 'astro:assets'
+---
+
+<section id="marquee-section" class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-14 border-b border-navy/30 overflow-hidden">
+  <ul class="flex gap-10 w-fit" id="marquee">
+    {
+      techStack.map((tech) => (
+        <li class="w-20 h-20">
+          <a href={tech.route} target='_blank' rel='noopener noreferrer'>
+            <Image
+              width={100}
+              height={100}
+              title={tech.label}
+              alt={tech.label}
+              src={`https://cdn.simpleicons.org/${tech.label}/243E61`}
+              class='opacity-75 hover:opacity-100 transition-opacity duration-300 h-full w-full object-cover'
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<script>
+  function Marquee(selector: string, speed: number): void {
+  const parentSelector: HTMLElement | null = document.querySelector(selector);
+  if (!parentSelector) return;
+  const clone = parentSelector.innerHTML;
+  let i = 0;
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+
+
+  setInterval(() => {
+    parentSelector.style.transform = `translateX(${-i}px)`;
+    if (i > parentSelector.clientWidth) {
+      i = 0;
+    }
+    i += speed;
+  }, 10);
+}
+
+window.addEventListener('load', () => Marquee('#marquee', 0.2));
+</script>

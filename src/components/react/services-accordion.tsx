@@ -25,7 +25,7 @@ const ServicesAccordion = ({ locale }: { locale: 'es' | 'en' | 'rs' }) => {
 								src={image.src}
 								alt={title}
 								title={`${title} Showcase`}
-								className='w-full rounded-[2rem] object-fit'
+								className='w-full rounded-[2rem] object-cover [aspect-ratio:16/6]'
 							/>
 							<div>{description}</div>
 						</AccordionContent>

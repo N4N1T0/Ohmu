@@ -13,9 +13,7 @@ import { slugify, projectTextArray } from '@/lib/utils'
 import ImageGallery from '@/components/projects/ImageGallery.astro'
 
 // Finding the project in the projects array
-const lavandaInfo = projects.find(
-	(project) => project.title === 'Lavanda del Lago',
-)
+const backswingInfo = projects.find((project) => project.title === 'Backswing')
 
 // Destructuring the project information
 const uiText = projectUi.es
@@ -32,7 +30,7 @@ const {
 	testimonial,
 	timeFrame,
 	// biome-ignore lint/style/noNonNullAssertion: <explanation>
-} = lavandaInfo!
+} = backswingInfo!
 
 // Project Timeline
 const timeline = projectTextArray(timeFrame)

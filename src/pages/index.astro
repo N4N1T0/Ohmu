@@ -1,18 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/home/Hero.astro'
+import Marquee from '@/components/home/Marquee.astro'
 import Subhero from '@/components/home/Subhero.astro'
 import Stats from '@/components/home/Stats.astro'
 import Servicios from '@/components/home/Servicios.astro'
 import Projects from '@/components/home/Projects.astro'
 import Testimonios from '@/components/home/Testimonios.astro'
+import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Welcome to Astro." locale='es'>
   <Hero locale="es" />
+  <Marquee />
   <Subhero locale="es" />
   <Stats locale='es' />
   <Servicios locale="es" />
-  <Projects />
+  <Projects locale='es' />
   <Testimonios />
 </Layout>

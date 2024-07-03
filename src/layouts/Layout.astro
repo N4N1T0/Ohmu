@@ -1,14 +1,21 @@
 ---
+// Astro Components Imports
 import Footer from '@/components/layout/Footer.astro'
 import Navbar from '@/components/layout/Navbar.astro'
+
+// Astro Imports
 import { ViewTransitions } from 'astro:transitions'
+
+// Global CSS imports
 import '@/styles/globals.css'
 
+// Props
 interface Props {
 	title: string
-	locale: 'es' | 'en' | 'rs'
+	locale: 'es' | 'en' | 'de' | 'fr'
 }
 
+// Props Deconstruction
 const { title, locale } = Astro.props
 ---
 

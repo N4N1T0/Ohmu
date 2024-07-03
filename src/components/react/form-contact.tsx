@@ -21,14 +21,18 @@ import {
 } from '@/components/ui/select'
 
 // Data imports
-import { uiForm, services } from '@/constants/site-data'
+import { services } from '@/constants/servicios'
+import { uiForm } from '@/constants/ui-locale'
 
 // Library imports
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-const FormContact = ({ locale }: { locale: 'es' | 'en' | 'rs' }) => {
+const FormContact = ({
+	locale,
+	selectedService,
+}: { locale: 'es' | 'en' | 'de' | 'fr'; selectedService: string }) => {
 	const formUiText = uiForm[locale as keyof typeof uiForm]
 
 	const formSchema = z.object({
@@ -49,7 +53,7 @@ const FormContact = ({ locale }: { locale: 'es' | 'en' | 'rs' }) => {
 			name: '',
 			email: '',
 			phone: '',
-			services: '',
+			services: selectedService,
 			message: '',
 		},
 	})

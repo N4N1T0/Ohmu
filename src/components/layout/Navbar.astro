@@ -4,38 +4,35 @@ import { Image } from 'astro:assets'
 
 // Site data imports
 import { navItems } from '@/constants/site-data'
+import { uiInfo } from '@/constants/ui-locale'
 
-//Assets imports
+// Assets imports
 import MainLogo from '@/assets/Main.svg'
 
 // Components imports
 import ContactSheet from '@/components/react/contact-sheet'
 import MobileNavbarSheet from '@/components/react/mobile-navbar-sheet'
+import LocalePopover from '../react/locale-popover'
 
 // Props definition
 interface Props {
-	locale: 'es' | 'en' | 'rs'
+	locale: 'es' | 'en' | 'de' | 'fr'
 }
 
 // Props
 const { locale } = Astro.props
+
+// Props Deconstruction
+const uitext = uiInfo[locale as keyof typeof uiInfo]
 ---
 
-<!-- TODO Add Locale Selection -->
-
-<!-- The main header of the page -->
 <header class='bg-white border-black'>
-  <!-- The container for the header content -->
   <div class='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 border-b border-navy/30'>
-    <!-- The navigation bar -->
     <div class='flex h-16 items-center justify-between pb-3'>
-      <!-- The mobile navigation menu trigger -->
-      <div class='block md:hidden'>
+      <div class='flex justify-center items-center md:hidden'>
         <MobileNavbarSheet client:load locale={locale}>
-          <!-- The mobile navigation menu trigger button -->
           <div
             class='rounded-full bg-navy p-3 text-white transition hover:text-gray-600/75'>
-            <!-- The mobile navigation menu trigger icon -->
             <svg
               xmlns='http://www.w3.org/2000/svg'
               class='h-5 w-5'
@@ -51,28 +48,21 @@ const { locale } = Astro.props
           </div>
         </MobileNavbarSheet>
       </div>
-      <!-- The main navigation menu -->
-      <div class='md:flex-1 md:flex md:items-center md:gap-12'>
-        <!-- The main navigation menu logo -->
+      <div class='hidden md:flex-1 md:flex md:items-center md:gap-12'>
         <a class='block text-teal-600' href='/'>
           <span class='sr-only'>Home</span>
           <Image src={MainLogo} alt='Main Logo' width={45} height={45} loading='eager' />
         </a>
       </div>
 
-      <!-- The global navigation menu -->
-      <div class='md:flex md:items-center md:gap-12'>
+      <div class='flex items-center gap-6 md:gap-12'>
         <nav aria-label='Global' class='hidden md:block'>
-          <!-- The global navigation menu list -->
           <ul class='flex items-center gap-6 text-sm'>
-            <!-- Loop through the navigation items -->
             {navItems.map((item) => (
               <li>
-                <!-- The global navigation menu item link -->
                 <a
                   class='text-navy transition-colors duration-150 hover:text-navy/70 uppercase font-semibold'
                   href={item.href}>
-                  {/* The global navigation menu item label */}
                   {item.label}
                 </a>
               </li>
@@ -80,16 +70,15 @@ const { locale } = Astro.props
           </ul>
         </nav>
 
-        <!-- The contact link -->
         <div class='flex items-center'>
           <ContactSheet client:load locale={locale}>
-            <!-- The contact link button -->
             <span
               class='block rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-ivory shadow-navy shadow-sm uppercase transition-all duration-150 hover:scale-105 hover:shadow-md'>
-              Contacto
+              {uitext['contact-sheet-button']}
             </span>
           </ContactSheet>
         </div>
+         <LocalePopover client:load locale={locale} />
       </div>
     </div>
   </div>

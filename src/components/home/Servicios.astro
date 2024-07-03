@@ -1,22 +1,26 @@
 ---
+// This Astro component is importing the ServicesAccordion from the react directory and uiInfo from the site data constants
 import ServicesAccordion from '../react/services-accordion'
-import { uiInfo } from '@/constants/site-data'
+import { uiInfo } from '@/constants/ui-locale'
 
+// Define the props for this component
 interface Props {
-	locale: 'es' | 'en' | 'rs'
+	locale: 'es' | 'en' | 'de' | 'fr'
 }
 
+// Extract the locale prop from Astro.props
 const { locale } = Astro.props
 
+// Destructure the uiText property from the uiInfo object using the locale prop as the key
 const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
 <section
-  id="servicios"
-  class="bg-gray-950 text-ivory pb-20"
+  id="services"
+  class="bg-navy text-ivory pb-20"
 >
-<div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 py-14">
-  <h2 class="text-9xl font-medium uppercase">
+<div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 py-7 md:py-14">
+  <h2 class="text-3xl lg:text-8xl 2xl:text-9xl font-medium uppercase">
         {uiText['services-1']}
   </h2>
   <ServicesAccordion locale={locale} client:visible />

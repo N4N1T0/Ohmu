@@ -1,13 +1,16 @@
 ---
+// Data Imports
 import { techStack } from '@/constants/site-data'
+
+// Astro Imports
 import { Image } from 'astro:assets'
 ---
 
-<section id="marquee-section" class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-14 border-b border-navy/30 overflow-hidden">
+<section id="marquee-section" class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-14 border-b border-navy/30 overflow-hidden">
   <ul class="flex gap-10 w-fit" id="marquee">
     {
       techStack.map((tech) => (
-        <li class="w-20 h-20">
+        <li class="w-10 md:w-20 h-10 md:h-20">
           <a href={tech.route} target='_blank' rel='noopener noreferrer'>
             <Image
               width={100}
@@ -25,24 +28,42 @@ import { Image } from 'astro:assets'
 </section>
 
 <script>
-  function Marquee(selector: string, speed: number): void {
+/**
+ * Creates a scrolling marquee effect on the specified element.
+ *
+ * @param {string} selector - The CSS selector of the element to apply the marquee effect to.
+ * @param {number} speed - The speed at which the element should scroll, in pixels per second.
+ */
+function Marquee(selector: string, speed: number): void {
+  // Get the element to apply the marquee effect to
   const parentSelector: HTMLElement | null = document.querySelector(selector);
+
+  // If the element doesn't exist, stop the function
   if (!parentSelector) return;
+
+  // Create a clone of the element and insert it after the original element
   const clone = parentSelector.innerHTML;
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+  parentSelector.insertAdjacentHTML('beforeend', clone);
+
+  // Set the initial position of the element
   let i = 0;
-  parentSelector.insertAdjacentHTML('beforeend', clone);
-  parentSelector.insertAdjacentHTML('beforeend', clone);
-  parentSelector.insertAdjacentHTML('beforeend', clone);
 
-
+  // Scroll the element horizontally at the specified speed
   setInterval(() => {
     parentSelector.style.transform = `translateX(${-i}px)`;
+
+    // If the element has scrolled past the end, reset its position
     if (i > parentSelector.clientWidth) {
       i = 0;
     }
+
+    // Increment the position of the element
     i += speed;
   }, 10);
 }
 
+// Call the Marquee function when the page has finished loading
 window.addEventListener('load', () => Marquee('#marquee', 0.2));
 </script>

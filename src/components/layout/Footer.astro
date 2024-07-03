@@ -1,41 +1,46 @@
+---
+import { uiInfo } from '@/constants/ui-locale'
+import { footerItems } from '@/constants/site-data'
+import ContactSheet from '@/components/react/contact-sheet'
+
+interface Props {
+	locale: 'es' | 'en' | 'de' | 'fr'
+}
+
+const { locale } = Astro.props
+
+const uiText = uiInfo[locale as keyof typeof uiInfo]
+---
+
 <footer class='bg-navy'>
   <div
     class='mx-auto max-w-screen-2xl px-4 pb-8 pt-16 sm:px-6 lg:px-8 lg:pt-24'>
     <div class='text-center'>
       <p class='mx-auto mt-4 max-w-sm text-ivory uppercase tracking-wider'>
-        Tienes alguna idea en Mente
+        {uiText['footer-subtitle']}
       </p>
       <h2 class='text-3xl font-extrabold text-ivory sm:text-9xl uppercase'>
-        contactanos
+        {uiText['footer-title']}
       </h2>
 
-      <a
-        href='#'
-        class='mt-8 inline-block rounded-full px-12 py-3 text-sm uppercase font-medium shadow-sm bg-gold text-charcoal transition-all duration-150 hover:scale-105 hover:shadow-lg'>
-        Get Started
-      </a>
+      <ContactSheet client:visible locale={locale}>
+        <span
+          class='mt-8 inline-block rounded-full px-12 py-3 text-sm uppercase font-medium shadow-sm bg-gold text-charcoal transition-all duration-150 hover:scale-105 hover:shadow-lg'>
+          Get Started
+      </span>
+      </ContactSheet>
     </div>
 
     <div
       class='mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24'>
       <ul class='flex flex-wrap justify-center gap-4 text-xs lg:justify-end'>
-        <li>
-          <a href='#' class='text-gray-500 transition hover:opacity-75'>
-            Terms & Conditions
-          </a>
-        </li>
-
-        <li>
-          <a href='#' class='text-gray-500 transition hover:opacity-75'>
-            Privacy Policy
-          </a>
-        </li>
-
-        <li>
-          <a href='#' class='text-gray-500 transition hover:opacity-75'>
-            Cookies
-          </a>
-        </li>
+        {footerItems[locale as keyof typeof footerItems].map(item => (
+          <li>
+            <a href={item.href} class='text-gold transition hover:opacity-75'>
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
 
       <ul class='mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end'>

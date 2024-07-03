@@ -1,27 +1,32 @@
 ---
-import { stats, uiInfo } from '@/constants/site-data'
+// Import the stats and uiInfo from the site data constants
+import { stats } from '@/constants/site-data'
+import { uiInfo } from '@/constants/ui-locale'
 
+// Define the props for this component
 interface Props {
-	locale: 'es' | 'en' | 'rs'
+	locale: 'es' | 'en' | 'de' | 'fr'
 }
 
+// Extract the locale prop from Astro.props
 const { locale } = Astro.props
 
+// Destructure the uiText property from the uiInfo object using the locale prop as the key
 const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
 <section
   id="stats"
-  class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-10 pb-20"
+  class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-8 md:pt-10 pb-10 md:pb-20"
 >
-<div class="w-full flex justify-between items-start">
-  <h3 class="font-medium uppercase text-3xl">{uiText['stats-1']}</h3>
-  <ul class="flex gap-10">
+<div class="w-full flex flex-col md:flex-row justify-between items-start">
+  <h3 class="font-medium uppercase text-xl md:text-3xl mb-5 md:mb-0">{uiText['stats-1']}</h3>
+  <ul class="flex flex-wrap md:flex-row gap-5 md:gap-10">
     {stats[locale as keyof typeof stats].map((stat) => {
       const statsArray = stat.value.split(' ')
       
       return (
-      <li class="text-6xl font-semibold uppercase leading-normal">
+      <li class="text-5xl md:text-6xl font-semibold uppercase leading-normal">
           <span>{statsArray[0]}</span>{' '}<span class="text-gold">{statsArray[1]}</span>
           <p class="text-2xl">{stat.label}</p>
       </li>

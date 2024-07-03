@@ -1,26 +1,32 @@
 ---
+// Assets
 import { Image } from 'astro:assets'
 import SubheroPic from '@/assets/sub-hero-desk-windmills.webp'
-import { uiInfo } from '@/constants/site-data'
 
+// Site data
+import { uiInfo } from '@/constants/ui-locale'
+
+// Defining the locale prop with possible values
 interface Props {
-	locale: 'es' | 'en' | 'rs'
+	locale: 'es' | 'en' | 'de' | 'fr'
 }
 
+// Destructuring the locale prop from Astro.props
 const { locale } = Astro.props
 
+// Destructuring the uiText from uiInfo using the locale prop as a key
 const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
-<section id="subhero" class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-5 pb-20 space-y-14 border-b border-navy/30">
+<section id="about" class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-5 pb-10 md:pb-20 space-y-7 md:space-y-14 border-b border-navy/30">
   <Image
     src={SubheroPic}
     alt="Subhero Pic"
     class='w-full [aspect-ratio:16/6] rounded-[2rem] object-cover'
     loading='eager' 
   />
-  <h3 class="font-medium uppercase text-3xl">{uiText['we-are-1']}</h3>
-  <p class="text-5xl font-semibold uppercase leading-snug text-navy">
+  <h3 class="font-medium uppercase text-base md:text-3xl">{uiText['we-are-1']}</h3>
+  <p class="text-xl md:text-5xl font-semibold uppercase leading-10 text-navy">
     {uiText['we-are-2']}
   </p>
 </section>

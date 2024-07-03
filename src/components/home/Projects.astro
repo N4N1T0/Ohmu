@@ -1,24 +1,45 @@
 ---
+// Component Imports
 import ProjectCard from '@/components/shared/ProjectCard.astro'
+
+// Locale Imports
+import { uiInfo } from '@/constants/ui-locale'
+
+// Data Imports
 import { projects } from '@/constants/projects'
+
+// Assets Imports
+import { ArrowDownLeft } from 'lucide-react'
+
+// Props
+interface Props {
+	locale: 'es' | 'en' | 'de' | 'fr'
+}
+
+// Extract the locale prop from Astro.props
+const { locale } = Astro.props
+
+// Destructure the uiText property from the uiInfo object using the locale prop as the key
+const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
 <section
   id="projects"
   class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-10 pb-20"
 >
-<div class="flex justify-between items-center w-full border-b border-navy/30 pb-10">
-  <h2 class="text-9xl font-medium uppercase">
-     Casos de Exito
+<div class="flex justify-between items-center w-full border-b border-navy/30 pb-5 lg:pb-10">
+  <h2 class="text-3xl lg:text-8xl 2xl:text-9xl font-medium uppercase">
+     {uiText['project-header']}
   </h2>
-  <div class="bg-gold rounded-full p-8 px-10 text-center uppercase text-ivory hover:bg-gold/70 duration-150 transition-colors cursor-pointer">
-      <p>ver <br> mas</p>
+  <div class="bg-gold rounded-full p-8 hidden md:block">
+      <ArrowDownLeft className="text-ivory" size={75} />
     </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-  {projects.map((project) => <ProjectCard title={project.title} description={project.description} image1={project.image1} image2={project.image2} />)}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+  {projects.map((project) => <ProjectCard title={project.title} service={project.service} images={project.images}/>)}
 </div>
-<div class="border-t border-navy/30 py-3 flex justify-between items-center mt-14">
+<!-- ??????? -->
+<div class="border-t border-navy/30 py-3 md:flex justify-between items-center mt-14 hidden">
   <span class="text-4xl text-gold uppercase">2024</span>
   <h4 class="uppercase font-semibold text-xl w-[30%]">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
   <p class="w-[40%] text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos alias obcaecati accusamus velit sit, quibusdam tenetur ut provident sequi aliquid.</p>

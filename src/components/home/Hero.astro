@@ -1,13 +1,17 @@
 ---
-import { ArrowDownRight } from 'lucide-react'
-import { uiInfo } from '@/constants/site-data'
+// This Astro component is using lucide-react icons and site data
+import { ArrowDownLeft } from 'lucide-react'
+import { uiInfo } from '@/constants/ui-locale'
 
+// Define the props for this component
 interface Props {
-	locale: 'es' | 'en' | 'rs'
+	locale: 'es' | 'en' | 'de' | 'fr'
 }
 
+// Extract the locale prop from Astro.props
 const { locale } = Astro.props
 
+// Destructure the uiText property from the uiInfo object using the locale prop as the key
 const uiText = uiInfo[locale as keyof typeof uiInfo]
 ---
 
@@ -15,13 +19,13 @@ const uiText = uiInfo[locale as keyof typeof uiInfo]
   id="hero"
   class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-3 pt-20 pb-14 border-b border-navy/30"
 >
-<span class="text-charcoal tracking-wide uppercase ml-3">{uiText['sub-hero']}</span>
-  <div class="flex items-end w-full">
-    <h1 class="text-9xl font-medium uppercase">
+<span class="text-charcoal text-sm md:text-base tracking-wide uppercase md:ml-3">{uiText['sub-hero']}</span>
+  <div class="flex flex-col md:flex-row items-end w-full">
+    <h1 class="text-5xl md:text-9xl font-medium uppercase">
       <span class="text-navy font-semibold">Ohmu</span> Online Operations
     </h1>
-    <div class="bg-gold rounded-full p-8">
-      <ArrowDownRight className="text-ivory" size={75} />
+    <div class="bg-gold rounded-full p-8 hidden md:block" title="Tech Stack Down Below">
+      <ArrowDownLeft className="text-ivory" size={75} />
     </div>
   </div>
 </section>

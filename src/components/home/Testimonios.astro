@@ -1,12 +1,15 @@
 ---
+// Assets Imports
 import { Quote } from 'lucide-react'
+
+// React Imports
 import TestimonialsCarrousel from '@/components/react/testimonial-carrousel'
 ---
 
-<section id="testimonios" class='bg-gold'>
-  <div class="w-full h-full py-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-10">
-    <div class="bg-gray-950 rounded-full p-8 w-fit text-ivory">
-      <Quote className="text-ivory" size={75} fill='currentColor' />
+<section id="testimonials" class='bg-gold'>
+  <div class="w-full h-full py-10 2xl:py-20 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start gap-10">
+    <div class="bg-gray-950 rounded-full p-8 w-fit text-ivory mt-3">
+      <Quote className="text-ivory size-10 lg:size-14 2xl:size-20" fill='currentColor' />
     </div>
     <TestimonialsCarrousel client:visible />
   </div>

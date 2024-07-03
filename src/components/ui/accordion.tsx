@@ -31,8 +31,8 @@ const AccordionTrigger = React.forwardRef<
 			{...props}
 		>
 			{children}
-			<span className='text-gold text-xl opacity-100 transition-opacity'>
-				Mas
+			<span className='text-gold text-xl opacity-100 transition-opacity hidden md:block'>
+				{props.moreicon}
 			</span>
 		</AccordionPrimitive.Trigger>
 	</AccordionPrimitive.Header>

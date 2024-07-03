@@ -1,15 +1,22 @@
 ---
+// Astro Imports
 import { Image } from 'astro:assets'
+
+// Utility Imports
 import { slugify } from '@/lib/utils'
 
+// Props
 export interface Props {
 	title: string
-	description: string
-	image1: ImageMetadata
-	image2: ImageMetadata
+	service: string
+	images: ImageMetadata[]
 }
 
-const { title, description, image1, image2 } = Astro.props
+// Props deconstruction
+const { title, service, images } = Astro.props
+
+// splice returns an array with the removed elements, we only want the first two
+const [image1, image2, ...rest] = images
 ---
 
 		<article>
@@ -19,23 +26,22 @@ const { title, description, image1, image2 } = Astro.props
 			>
 			<div class="overflow-hidden rounded-3xl w-full relative aspect-square">
 				<Image
-					src={image1}
+					src={image2}
 					alt={`${title} principal picture`}
 					title={`${title} principal picture`}
           transition:name={`${slugify(title)}-main`}
-					class='object-cover'
+					class='object-cover w-full h-full'
 				/>
 				<Image
-					src={image2}
+					src={image1}
 					alt={`${title} mockup website`}
 					title={`${title} mockup website`}
-					transition:name={slugify(title)}
-					class='absolute object-cover top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 duration-1000 transition-opacity'
+					class='absolute object-cover top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-active:opacity-100 duration-1000 transition-opacity'
 				/>
 			</div>
 				<div class="text-left space-y-1 uppercase">
-					<h2 class="font-semibold text-charcoal text-xl" >{description}</h2>
-					<h1 class='text-4xl font-bold text-gray-950 tracking-wider'>
+					<h2 class="font-semibold text-charcoal text-sm md:text-xl" >{service}</h2>
+					<h1 class='text-2xl md:text-4xl font-bold text-gray-950 tracking-wider' transition:name={`${slugify(title)}-title`}>
 						{title}
 					</h1>
 				</div>
